@@ -29,7 +29,7 @@ def predict():
     test_df = pd.DataFrame({'Age':[age],'BMI':[bmi],"No of Children":[children],"Sex":[sex],"Smoker":[smoker]})
     pred_price = int(model.predict(test_df))
 
-    return jsonify(pred_price)
+    return jsonify({'Insurance':str(pred_price)})
 
 if __name__ == "__main__":
     app.run(debug=True)
