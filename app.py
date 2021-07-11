@@ -17,7 +17,7 @@ app = Flask(__name__) #Initialize the flask App
 def home():
     return render_template("index.html")
 
-@app.route('/predict')
+@app.route('/predict',methods=['POST'])
 def predict():
     model = pickle.load(open('model.pkl', 'rb'))
     age = request.args.get('age')
