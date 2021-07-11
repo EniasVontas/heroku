@@ -6,18 +6,16 @@ Created on Sat Jul  3 13:06:33 2021
 """
 
 import numpy as np
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 import pandas as pd
 
 app = Flask(__name__) #Initialize the flask App
 #model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/', methods = ["GET", "POST"])
+@app.route('/')
 def home():
-    if(request.method == "GET"):
-        data = "hello world"
-        return jsonify({'data':data})
+    return render_template("index.html")
 
 @app.route('/predict')
 def predict():
