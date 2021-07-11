@@ -27,7 +27,7 @@ def predict():
     smoker = request.args.get('smoker_yes')
     
     test_df = pd.DataFrame({'Age':[age],'BMI':[bmi],"No of Children":[children],"Sex":[sex],"Smoker":[smoker]})
-    pred_price = model.predict(test_df)
+    pred_price = int(model.predict(test_df))
 
     return jsonify(pred_price)
 
